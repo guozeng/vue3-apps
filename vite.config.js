@@ -1,10 +1,8 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-
-import { createHtmlPlugin } from 'vite-plugin-html'
-import htmlPluginConfig from './vite-config/html'
+import { mpa } from './vite-config'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), createHtmlPlugin(htmlPluginConfig())],
+  plugins: [vue(), mpa()],
 })

@@ -1,1 +1,1 @@
-console.log('src/index')
+export { default as http } from './http'

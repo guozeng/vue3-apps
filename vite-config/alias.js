@@ -6,4 +6,5 @@ function pathResolve(dir) {
 
 export default {
   'pc-main': pathResolve('apps/pc-main'),
+  '/@/': pathResolve('src'),
 }

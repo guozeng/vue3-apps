@@ -8,6 +8,13 @@ export default defineConfig({
   server: {
     host: true,
     https: true,
+    proxy: {
+      '/test': {
+        target: 'https://yl-test.xiaogj.com/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/test/, ''),
+      },
+    },
   },
   resolve: {
     alias,

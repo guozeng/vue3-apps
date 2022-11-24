@@ -160,7 +160,7 @@ export function httpGet(url, params) {
     params,
     method: 'get',
   }).then((res) => {
-    return JSON.parse(res.data)
+    return res
   })
 }
 export async function httpPost(url, data) {
@@ -168,8 +168,11 @@ export async function httpPost(url, data) {
     url,
     data,
     method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+    },
   }).then((res) => {
-    return JSON.parse(res.data)
+    return res
   })
 }
 export async function httpDelete(url, params) {
@@ -178,6 +181,6 @@ export async function httpDelete(url, params) {
     params,
     method: 'delete',
   }).then((res) => {
-    return JSON.parse(res.data)
+    return res
   })
 }

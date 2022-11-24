@@ -3,13 +3,18 @@
 </template>
 
 <script setup>
-import { httpGet } from '/@/'
+import useHttp from '../api'
+const httpLogin = useHttp('login')
 
-function getA() {
-  httpGet('/test/api/crm/wechat/getQrAuthUrl').then((res) => {
-    console.log(res)
+async function fn() {
+  let ret = await httpLogin.smsLogin({
+    mobile: '1312222222112',
+    smsCode: '123222',
   })
-}
 
-getA()
+  console.log(ret)
+}
+fn()
+
+// httpLogin.getQrAuthUrl()
 </script>

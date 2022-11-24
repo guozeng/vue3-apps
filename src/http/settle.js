@@ -10,7 +10,18 @@ import createError from './createError'
 export default function settle(resolve, reject, response) {
   var validateStatus = response.config.validateStatus
   if (!response.status || !validateStatus || validateStatus(response.status)) {
-    resolve(response)
+    let data
+    try {
+      data = JSON.parse(response.data)
+    } catch (error) {
+      reject(error)
+      return
+    }
+    if (data.code === 200) {
+      resolve(data)
+    } else {
+      reject(data)
+    }
   } else {
     reject(
       createError(

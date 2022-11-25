@@ -4,4 +4,8 @@ export default {
     path: '/',
     component: PageEnums.Login,
   },
+  Layout: {
+    path: '/layout',
+    component: PageEnums.Layout,
+  },
 }

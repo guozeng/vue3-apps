@@ -1,6 +1,6 @@
-import { genRequestFunc } from '../genRequestFunc'
+import createApi from '../createApi'
 
 export default {
-  smsLogin: genRequestFunc('crm/user/smsLogin', 'post'),
-  getQrAuthUrl: genRequestFunc('crm/wechat/getQrAuthUrl'),
+  smsLogin: createApi('crm/user/smsLogin', 'post'),
+  getQrAuthUrl: createApi('crm/wechat/getQrAuthUrl'),
 }

@@ -1,3 +1,4 @@
+import type { App } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import basic from './routes/basic'
 
@@ -10,6 +11,6 @@ export const router = createRouter({
   scrollBehavior: () => ({ left: 0, top: 0 }),
 })
 
-export default function setupRouter(app) {
+export default function setupRouter(app: App<Element>) {
   app.use(router)
 }

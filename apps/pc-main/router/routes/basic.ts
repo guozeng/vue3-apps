@@ -1,5 +1,7 @@
+import type { RouteRecordRaw } from 'vue-router'
 import PageEnums from '../PageEnums'
-export default {
+
+const basic: Record<string, RouteRecordRaw> = {
   Login: {
     path: '/',
     component: PageEnums.Login,
@@ -9,3 +11,4 @@ export default {
     component: PageEnums.Layout,
   },
 }
+export default basic

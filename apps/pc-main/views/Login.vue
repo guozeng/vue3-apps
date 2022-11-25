@@ -4,13 +4,13 @@
   <div>{{ authStore.token }}</div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import useHttp from '../api'
 import { useAuthStore } from '../store'
 const httpLogin = useHttp('login')
 
 async function fn() {
-  let ret = await httpLogin.smsLogin(
+  let ret = await httpLogin?.smsLogin(
     {
       mobile: '13122222222',
       smsCode: '123222',

@@ -9,7 +9,7 @@ export default () =>
          * filename is optional, default is `${name}.html`, which is the relative path of `build.outDir`.
          */
         filename: 'index.html', // output into sites/fruits/apple.html at build time.
-        entry: '/apps/pc-main/index.js',
+        entry: '/apps/pc-main/index.ts',
         data: {
           title: 'This is pc-main page',
         },
@@ -20,7 +20,7 @@ export default () =>
          * filename is optional, default is `${name}.html`, which is the relative path of `build.outDir`.
          */
         filename: 'h5.html', // output into sites/fruits/apple.html at build time.
-        entry: '/apps/h5-main/index.js',
+        entry: '/apps/h5-main/index.ts',
         data: {
           title: 'This is h5-main page',
         },

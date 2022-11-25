@@ -2,7 +2,7 @@
   <div>{{ authStore.token }}</div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { useAuthStore } from '../store'
 const authStore = useAuthStore()
 

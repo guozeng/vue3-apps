@@ -1,6 +1,6 @@
 import { createApiFnGener } from '/@/'
 
-export function defaultErrorHandler(err) {
+export function defaultErrorHandler(err: any) {
   console.log('defaultErrorHandler: ', err)
 }
 

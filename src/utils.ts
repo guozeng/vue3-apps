@@ -6,7 +6,7 @@ var toString = Object.prototype.toString
  * @param {Object} val The value to test
  * @returns {boolean} True if value is an FormData, otherwise false
  */
-export function isFormData(val) {
+export function isFormData(val: any) {
   return typeof FormData !== 'undefined' && val instanceof FormData
 }
 
@@ -16,7 +16,7 @@ export function isFormData(val) {
  * @param {string} url The URL to test
  * @returns {boolean} True if the specified URL is absolute, otherwise false
  */
-export function isAbsoluteURL(url) {
+export function isAbsoluteURL(url: string) {
   // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
   // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
   // by any combination of letters, digits, plus, period, or hyphen.
@@ -30,7 +30,7 @@ export function isAbsoluteURL(url) {
  * @param {string} relativeURL The relative URL
  * @returns {string} The combined URL
  */
-export function combineURLs(baseURL, relativeURL) {
+export function combineURLs(baseURL: string, relativeURL: string) {
   return relativeURL ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '') : baseURL
 }
 
@@ -43,7 +43,7 @@ export function combineURLs(baseURL, relativeURL) {
  * @param {string} requestedURL Absolute or relative URL to combine
  * @returns {string} The combined full path
  */
-export function buildFullPath(baseURL, requestedURL) {
+export function buildFullPath(baseURL: string, requestedURL: string) {
   if (baseURL && !isAbsoluteURL(requestedURL)) {
     return combineURLs(baseURL, requestedURL)
   }
@@ -62,7 +62,7 @@ export function buildFullPath(baseURL, requestedURL) {
  * @param {Object|Array} obj The object to iterate
  * @param {Function} fn The callback to invoke for each item
  */
-export function forEach(obj, fn) {
+export function forEach(obj: any, fn: (...args: any) => any) {
   // Don't bother if no value provided
   if (obj === null || typeof obj === 'undefined') {
     return
@@ -95,7 +95,7 @@ export function forEach(obj, fn) {
  * @param {Object} val The value to test
  * @returns {boolean} True if value is a URLSearchParams object, otherwise false
  */
-export function isURLSearchParams(val) {
+export function isURLSearchParams(val: any) {
   return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams
 }
 
@@ -105,7 +105,7 @@ export function isURLSearchParams(val) {
  * @param {Object} val The value to test
  * @returns {boolean} True if value is a Date, otherwise false
  */
-export function isDate(val) {
+export function isDate(val: any) {
   return toString.call(val) === '[object Date]'
 }
 
@@ -115,7 +115,7 @@ export function isDate(val) {
  * @param {Object} val The value to test
  * @returns {boolean} True if value is an Array, otherwise false
  */
-export function isArray(val) {
+export function isArray(val: any) {
   return toString.call(val) === '[object Array]'
 }
 /**
@@ -124,7 +124,7 @@ export function isArray(val) {
  * @param {Object} val The value to test
  * @returns {boolean} True if value is an Object, otherwise false
  */
-export function isObject(val) {
+export function isObject(val: any) {
   return val !== null && typeof val === 'object'
 }
 
@@ -134,7 +134,7 @@ export function isObject(val) {
  * @param {String} str The String to trim
  * @returns {String} The String freed of excess whitespace
  */
-export function trim(str) {
+export function trim(str: string) {
   return str.trim ? str.trim() : str.replace(/^\s+|\s+$/g, '')
 }
 

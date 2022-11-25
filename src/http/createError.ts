@@ -12,7 +12,13 @@ import enhanceError from './enhanceError'
  * @param {Object} [response] The response.
  * @returns {Error} The created error.
  */
-export default function createError(message, config, code, request, response) {
+export default function createError(
+  message?: string,
+  config?: any,
+  code?: any,
+  request?: any,
+  response?: any
+) {
   var error = new Error(message)
   return enhanceError(error, config, code, request, response)
 }

@@ -8,7 +8,13 @@
  * @param {Object} [response] The response.
  * @returns {Error} The error.
  */
-export default function enhanceError(error, config, code, request, response) {
+export default function enhanceError(
+  error: any,
+  config: any,
+  code: string,
+  request: any,
+  response: any
+) {
   error.config = config
   if (code) {
     error.code = code

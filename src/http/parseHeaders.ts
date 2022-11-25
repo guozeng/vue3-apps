@@ -32,8 +32,8 @@ const ignoreDuplicateOf = [
  * @param {String} headers Headers needing to be parsed
  * @returns {Object} Headers parsed into an object
  */
-export default function parseHeaders(headers) {
-  var parsed = {}
+export default function parseHeaders(headers: string) {
+  var parsed: Record<string, string | string[]> = {}
   var key
   var val
   var i
@@ -42,7 +42,7 @@ export default function parseHeaders(headers) {
     return parsed
   }
 
-  forEach(headers.split('\n'), function parser(line) {
+  forEach(headers.split('\n'), function parser(line: string) {
     i = line.indexOf(':')
     key = trim(line.substr(0, i)).toLowerCase()
     val = trim(line.substr(i + 1))
@@ -52,7 +52,7 @@ export default function parseHeaders(headers) {
         return
       }
       if (key === 'set-cookie') {
-        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val])
+        parsed[key] = (parsed[key] ? parsed[key] : []).concat(val)
       } else {
         parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val
       }

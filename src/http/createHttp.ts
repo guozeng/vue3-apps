@@ -1,6 +1,6 @@
 import { httpPost, httpGet, httpDelete } from '.'
 
-async function genApiPromise(promise, errCallback) {
+async function genApiPromise(promise: Promise<any>, errCallback: any) {
   try {
     return await new Promise((resolve, reject) => {
       promise
@@ -26,7 +26,7 @@ async function genApiPromise(promise, errCallback) {
         })
         .catch((err_2) => {
           console.error(`❌==》网络异常： `, err_2)
-          resolve()
+          resolve(undefined)
         })
     })
   } catch (err_3) {
@@ -34,7 +34,10 @@ async function genApiPromise(promise, errCallback) {
   }
 }
 
-export default function createApiFnGener(baseUrl, defaultErrHandler) {
+export default function createApiFnGener(
+  baseUrl: string,
+  defaultErrHandler: (err: unknown) => any
+) {
   if (typeof baseUrl === 'function') {
     defaultErrHandler = baseUrl
     baseUrl = '/'
@@ -47,14 +50,14 @@ export default function createApiFnGener(baseUrl, defaultErrHandler) {
       `Params [defaultErrHandler] expect function but get ${typeof defaultErrHandler}`
     )
   }
-  return function (url, method) {
+  return function (url: string, method?: string) {
     url = baseUrl + url
-    return function (data, errFn = defaultErrHandler) {
+    return function (data: any, errFn = defaultErrHandler) {
       if (typeof data === 'function' || data === false) {
         errFn = data
         data = null
       }
-      let promise
+      let promise: Promise<unknown> = Promise.resolve(undefined)
       method = (method || 'get').toLowerCase()
       if (method === 'get') {
         promise = httpGet(url, data)

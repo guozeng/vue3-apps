@@ -1,6 +1,6 @@
 import { resolve } from 'path'
 
-function pathResolve(dir) {
+function pathResolve(dir: string) {
   return resolve(__dirname, '..', dir)
 }
 

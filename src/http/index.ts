@@ -17,7 +17,7 @@ import createError from './createError'
  * onDownloadProgress
  * validateStatus
  */
-export default function http(config) {
+export default function http(config: any) {
   return new Promise((resolve, reject) => {
     var requestData = config.data
     var requestHeaders = config.headers
@@ -27,7 +27,7 @@ export default function http(config) {
       delete requestHeaders['Content-Type'] // Let the browser set it
     }
 
-    var request = new XMLHttpRequest()
+    var request: any = new XMLHttpRequest()
 
     var fullPath = utils.buildFullPath(config.baseURL, config.url)
 
@@ -154,7 +154,7 @@ export default function http(config) {
   })
 }
 
-export function httpGet(url, params) {
+export function httpGet(url: string, params: any) {
   return http({
     url,
     params,
@@ -163,7 +163,7 @@ export function httpGet(url, params) {
     return res
   })
 }
-export async function httpPost(url, data) {
+export async function httpPost(url: any, data: any) {
   return http({
     url,
     data,
@@ -175,7 +175,7 @@ export async function httpPost(url, data) {
     return res
   })
 }
-export async function httpDelete(url, params) {
+export async function httpDelete(url: any, params: any) {
   return http({
     url,
     params,

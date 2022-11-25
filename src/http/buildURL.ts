@@ -1,6 +1,6 @@
 import { isURLSearchParams, forEach, isArray, isDate, isObject } from '../utils'
 
-function encode(val) {
+function encode(val: string) {
   return encodeURIComponent(val)
     .replace(/%3A/gi, ':')
     .replace(/%24/g, '$')
@@ -16,7 +16,7 @@ function encode(val) {
  * @param {object} [params] The params to be appended
  * @returns {string} The formatted url
  */
-export default function buildURL(url, params, paramsSerializer) {
+export default function buildURL(url: string, params: any, paramsSerializer: any) {
   /*eslint no-param-reassign:0*/
   if (!params) {
     return url
@@ -28,7 +28,7 @@ export default function buildURL(url, params, paramsSerializer) {
   } else if (isURLSearchParams(params)) {
     serializedParams = params.toString()
   } else {
-    var parts = []
+    var parts: Array<string> = []
 
     forEach(params, function serialize(val, key) {
       if (val === null || typeof val === 'undefined') {

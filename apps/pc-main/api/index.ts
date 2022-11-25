@@ -5,7 +5,7 @@ import login from './modules/login'
 /**
  * @params module
  */
-function useHttp(module) {
+function useHttp(module: string) {
   switch (module) {
     case 'login':
       return login
